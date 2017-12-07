@@ -5,7 +5,13 @@ import {
   StyleSheet,
   Text
 } from 'react-native';
-import { Button, Container, ContainerSection, Input, LogoFacebook, StatusBarComponent } from '../components';
+import { 
+  Button, 
+  Container, 
+  ContainerSection, 
+  Input, 
+  LogoFacebook, 
+  StatusBarComponent } from '../../components';
 
 export default class Graph extends Component {
   constructor(props){

@@ -1,16 +1,26 @@
-// This router for StackTawigation and include all screens 
+// This router for StackNavgation and include all screens 
 //
 import React, { Component } from 'react'; 
 import { StackNavigator } from 'react-navigation';
 
-import Home from '../screens/Home';
-import EnterId from '../screens/EnterId';
-import Answer from '../screens/Answer';
-import Graph from '../screens/Graph';
+import { 
+  Home,
+  EnterId,
+  Answer,
+  Graph
+} from '../screens/JoinTheVote';
+
+import {
+  CreateQuestion,
+  CreateAnswers
+} from '../screens/CreateVote';
 
 export const Tabs = StackNavigator({
-    Home: { screen: Home },
-    EnterId: { screen: EnterId },
-    Answer: { screen: Answer },
-    Graph: { screen: Graph }
+  Home: { screen: Home },
+  EnterId: { screen: EnterId },
+  Answer: { screen: Answer },
+  Graph: { screen: Graph },
+  //
+  CreateQuestion: { screen: CreateQuestion },
+  CreateAnswers: { screen: CreateAnswers }
 })

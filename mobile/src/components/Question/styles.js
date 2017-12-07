@@ -5,6 +5,10 @@ const containerHeight = Dimensions.get('window').height;
 
 export default StyleSheet.create({
   textStyle: {
+    justifyContent: 'center', 
+    alignItems: 'center',
+    width: '100%',
+    minHeight: 50,
     borderRadius: 5,
     backgroundColor: 'rgba(255, 255, 255, 0.98)',
     paddingVertical: 10,
