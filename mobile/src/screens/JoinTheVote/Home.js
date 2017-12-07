@@ -5,7 +5,13 @@ import {
   Text,
   View
 } from 'react-native';
-import { Button, Container, ContainerSection, Input, Logo, StatusBarComponent } from '../components';
+import {
+  Button,
+  Container,
+  ContainerSection, 
+  Input, 
+  Logo, 
+  StatusBarComponent } from '../../components';
 
 export default class Home extends Component {
   static navigationOptions = {
@@ -26,12 +32,12 @@ export default class Home extends Component {
           <Logo/>
         </ContainerSection>
         <ContainerSection>
-          <Button onPress={ () => alert('Empty tree')}>
-            Create Vote
+          <Button onPress={() => navigator.navigate('CreateQuestion')}>
+            Create Vote 
           </Button>
         </ContainerSection>
         <ContainerSection>
-          <Button onPress={ () => navigator.navigate('EnterId')}>
+          <Button onPress={() => navigator.navigate('EnterId')}>
             Join the Vote
           </Button>
         </ContainerSection>

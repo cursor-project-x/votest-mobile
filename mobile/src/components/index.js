@@ -2,6 +2,8 @@ import Button from './Button';
 import Container from './Container';
 import ContainerSection from './ContainerSection';
 import Input from './Input';
+import InputQuestion from './InputQuestion';
+import InputCreateAnswer from './InputCreateAnswer';
 import Logo from './Logo';
 import LogoFacebook from './LogoFacebook';
 import StatusBarComponent from './StatusBarComponent';
@@ -11,7 +13,9 @@ export {
     Button, 
     Container, 
     ContainerSection, 
-    Input, 
+    Input,
+    InputQuestion,
+    InputCreateAnswer, 
     Logo, 
     LogoFacebook, 
     StatusBarComponent,

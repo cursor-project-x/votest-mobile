@@ -6,8 +6,14 @@ import {
   Text,
   ScrollView
 } from 'react-native';
-import { firebaseApp } from '../config/api';
-import { Button, Container, ContainerSection, Input, LogoFacebook, StatusBarComponent } from '../components';
+import { firebaseApp } from '../../config/api';
+import { 
+  Button, 
+  Container, 
+  ContainerSection, 
+  Input, 
+  LogoFacebook, 
+  StatusBarComponent } from '../../components';
 
 export default class EnterId extends Component {
   constructor(props){
@@ -15,7 +21,8 @@ export default class EnterId extends Component {
     this.state = {
       code: '',
       label: 'False',
-      accept: 'false'
+      accept: 'false',
+      check:''
     }
     //for ignoring yellow console => long time more then 60 * 1000
     //
@@ -31,23 +38,32 @@ export default class EnterId extends Component {
       paddingLeft: 45
     },
   }
+
+  getCode(){
+    this.itemRef.ref('Two').child('code').on('value', snap => {
+      if(snap.val()) this.setState({ code: snap.val()})
+   })
+  }
+  componentWillMount(){
+    this.getCode()
+  }
+
   // GET values ==> vote id from firebase and check entered code === code from db
   // question! {navigator.navigate('Answer')} do if true or this.state.accept onChange in
   //
   checkCode(){
     const navigator = this.props.navigation;
-    this.itemRef.ref('Two').child('code').on('value', snap => {
-      if(snap.val() == this.state.code){
+      if(this.state.code == this.state.check){
         this.setState({ label: 'True', accept: 'true'})
         {navigator.navigate('Answer')}
-      } else {
-        this.setState({ label: 'False'})
-      }
-   })
+      } 
+      // else {
+      //   this.setState({ label: 'False'})
+      // }
   }
   
   renderScreen(){
-    const { label, code } = this.state;
+    const { label, check, code } = this.state;
     return(
       <Container>
         <StatusBarComponent/>
@@ -56,10 +72,10 @@ export default class EnterId extends Component {
         </ContainerSection>
         <ContainerSection>
         <Input
-          placeholder='Enter: 333'
-          label={ label }
-          value={ code }
-          onChangeText={ code => this.setState({ code } )}/>
+          placeholder='<== Enter'
+          label={ code }
+          value={ check }
+          onChangeText={ check => this.setState({ check } )}/>
         </ContainerSection>
         <ContainerSection>
           <Button onPress={ () => { this.checkCode() } }>

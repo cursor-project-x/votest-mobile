@@ -6,8 +6,13 @@ import {
   View,
   Text
 } from 'react-native';
-import { firebaseApp } from '../config/api';
-import { Button, Container, ContainerSection, StatusBarComponent, Question } from '../components';
+import { firebaseApp } from '../../config/api';
+import { 
+  Button, 
+  Container, 
+  ContainerSection, 
+  StatusBarComponent, 
+  Question } from '../../components';
 
 export default class Answer extends Component {
   constructor(props){
